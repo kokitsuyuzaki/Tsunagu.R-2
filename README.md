@@ -19,8 +19,95 @@ SQLiteが使われているパッケージを閲覧（Macの場合、ターミ�
     ls /Library/Frameworks/R.framework/Resources/library/*/extdata/*.db
 
 # 1. SQLiteの基礎
-```r
+```
+/* 起動 */
+sqlite3
 
+/* 終了 */
+.exit
+
+/* DBファイルを作成　*/
+sqlite3 test.sqlite
+
+/* CREATE : テーブル作成 */
+CREATE TABLE RNASEQ (
+gene_name VARCHAR(50),
+control NUMERIC,
+treatment NUMERIC
+);
+
+/* INSERT : データの追加 */
+INSERT INTO RNASEQ VALUES("gene1", 0, 0);
+INSERT INTO RNASEQ VALUES("gene2", 12, 25);
+INSERT INTO RNASEQ VALUES("gene3", 100, 203);
+INSERT INTO RNASEQ VALUES("gene4", 0, 0);
+INSERT INTO RNASEQ VALUES("gene5", 230, 13);
+
+/* UPDATE : データの更新 */
+UPDATE RNASEQ SET control == 10 WHERE gene_name == "gene4";
+
+/* 削除に関して */
+/* DELETE : 行に対して */
+DELETE FROM RNASEQ WHERE gene_name == "gene1";
+
+/* 列に対して */
+-- ALTER TABLE RNASEQ DROP column control;がSQLiteに限って使えない
+/* 一時テーブル */
+CREATE TABLE TMP (
+gene_name VARCHAR(50),
+treatment NUMERIC
+);
+/* RNASEQから必要な列だけ取り出し、TMPに格納*/
+INSERT INTO TMP SELECT gene_name, treatment FROM RNASEQ;
+/* RNASEQは削除 */
+DROP TABLE RNASEQ;
+/* TMPをRNASEQの名前を変更 */
+ALTER TABLE TMP RENAME TO RNASEQ;
+
+/* DELETE : 全データに対して */
+DELETE FROM RNASEQ;
+
+/* DROP : テーブルに対して */
+DROP TABLE RNASEQ;
+
+
+/* 再びテーブル作成 */
+CREATE TABLE RNASEQ (
+gene_name VARCHAR(50),
+control NUMERIC,
+treatment NUMERIC
+);
+INSERT INTO RNASEQ VALUES("gene1", 0, 0);
+INSERT INTO RNASEQ VALUES("gene2", 12, 25);
+INSERT INTO RNASEQ VALUES("gene3", 100, 203);
+INSERT INTO RNASEQ VALUES("gene4", 0, 0);
+INSERT INTO RNASEQ VALUES("gene5", 230, 13);
+
+/* SELECT : テーブルのデータ全て */
+SELECT * FROM RNASEQ;
+
+/* SELECT : gene3, gene4の行のみ */
+SELECT * FROM RNASEQ WHERE gene_name == "gene3" OR gene_name == "gene4";
+
+/* SELECT : controlもtreatmentも0では無い行を取り出す */
+SELECT * FROM RNASEQ WHERE control != 0 AND treatment != 0;
+
+/* SELECT : controlもtreatmentも0では無い行のgene_nameを取り出す */
+SELECT gene_name FROM RNASEQ WHERE control != 0 AND treatment != 0;
+
+/* SELECT : 結合、JOIN */
+/* ある転写因子TF1の結合箇所 */
+CREATE TABLE TF1BIND (
+gene_name VARCHAR(50),
+TF1 NUMERIC
+);
+
+INSERT INTO TF1BIND VALUES ("gene1", 104);
+INSERT INTO TF1BIND VALUES ("gene2", -12);
+
+/* 2テーブルに跨がった検索 */
+SELECT A.gene_name, A.control, A.treatment, B.TF1 FROM RNASEQ AS A, TF1BIND AS B WHERE A.gene_name = B.gene_name;
+```
 
 # 2. RSQLiteの利用
 ```r
