@@ -251,12 +251,12 @@ pubmed.download(keyword)
 # 3. MeSHパッケージの紹介
 以下は現状Developer版Rでのみ利用可能(2012.3.2)。安定して動くのはBioConductor2.13以降になる事が予想される。
 
-## バイナリ版（クリックしていくだけ）
-## Mac用 R-devel : http://R.research.att.com/
-## Windows用 R-devel : http://cran.r-project.org/bin/windows/base/rdevel.html
+# バイナリ版（クリックしていくだけでインストールできる）
+# Mac用 R-devel : http://R.research.att.com/
+# Windows用 R-devel : http://cran.r-project.org/bin/windows/base/rdevel.html
 
-## ソース版（自分でmakeしないといけない）
-## http://cran.r-project.org/ > R Sources > R-devel.tar.gzをダウンロード 
+# ソース版（自分でmakeしないといけない）
+# http://cran.r-project.org/ > R Sources > R-devel.tar.gzをダウンロード 
 
 ```
 tar xvf R-devel.tar.gz
