@@ -1,5 +1,5 @@
 #! /bin/sh
-ls Put_Data_Here/ > journal.txt
+ls Pubmed/ > journal.txt
 
 while read line
 do

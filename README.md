@@ -117,7 +117,7 @@ SELECT A.gene_name, A.control, A.treatment, B.TF1 FROM RNASEQ AS A, TF1BIND AS B
 ```
 
 # 2. RSQLiteの利用
- pubmed.sqliteは別途作成が必要。Put_Data_Hereというフォルダを作成し、そこにhttp://www.ncbi.nlm.nih.gov/pmc/tools/ftp/
+ pubmed.sqliteは別途作成が必要。Pubmedフォルダにhttp://www.ncbi.nlm.nih.gov/pmc/tools/ftp/
  のarticle-A-B.tar.gz, article-C-H.tar.gz, article-I-N.tar.gz, article-O-Z.tar.gzをダウンロードし、解凍。
  あとは
  ```
