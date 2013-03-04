@@ -1,5 +1,10 @@
 # 「第2回Rでつなぐ次世代オミックス情報統合解析研究会」
 での発表資料とソースコード
+
+https://sites.google.com/site/r2013jsbi/
+
+http://www.jsbi.org/event/hosted-events/20130308r/
+
 =======
 
 # イントロ
