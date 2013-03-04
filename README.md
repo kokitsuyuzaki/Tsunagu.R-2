@@ -13,6 +13,7 @@ packs<- available.packages(contriburl=contrib.url("http://cran.md.tsukuba.ac.jp/
 install.packages(packs[,1],type="source")
 ```
 SQLiteが使われているパッケージを閲覧（Macの場合、ターミナルで）
+
     ls /Library/Frameworks/R.framework/Resources/library/*/extdata/*.sqlite
     ls /Library/Frameworks/R.framework/Resources/library/*/extdata/*.sql
     ls /Library/Frameworks/R.framework/Resources/library/*/extdata/*.db
