@@ -20,7 +20,8 @@ SQLiteが使われているパッケージを閲覧（Macの場合、ターミ�
 
 # 1. SQLiteの基礎
 ```
-/* 起動 */
+# 以下はターミナルで
+# 起動
 sqlite3
 
 /* 終了 */
@@ -119,6 +120,7 @@ SELECT A.gene_name, A.control, A.treatment, B.TF1 FROM RNASEQ AS A, TF1BIND AS B
  とすれば、xmlがparseされ、pubmed.sqliteが生成される（数日かかる）。
 
 ```r
+# 以下はRのコンソール画面で
 # ロード
 library("RSQLite")
 library("DBI")
@@ -247,9 +249,7 @@ pubmed.download(keyword)
 ```
 
 # 3. MeSHパッケージの紹介
-```r
-## 以下は現状Developer版Rでのみ利用可能(2012.3.2)
-## 安定して動くのはBioConductor2.13以降
+以下は現状Developer版Rでのみ利用可能(2012.3.2)。安定して動くのはBioConductor2.13以降になる事が予想される。
 
 ## バイナリ版（クリックしていくだけ）
 ## Mac用 R-devel : http://R.research.att.com/
@@ -257,13 +257,16 @@ pubmed.download(keyword)
 
 ## ソース版（自分でmakeしないといけない）
 ## http://cran.r-project.org/ > R Sources > R-devel.tar.gzをダウンロード 
+
+```
 tar xvf R-devel.tar.gz
 cd R-devel
 sudo ./configure --enable-R-shlib
 sudo make
 sudo make install
+```
 
-
+```r
 ## パッケージダウンロード
 source("http://bioconductor.org/biocLite.R")
 biocLite("GO.db",type="source")
