@@ -114,7 +114,9 @@ SELECT A.gene_name, A.control, A.treatment, B.TF1 FROM RNASEQ AS A, TF1BIND AS B
  Put_Data_Hereというフォルダを作成し、そこにhttp://www.ncbi.nlm.nih.gov/pmc/tools/ftp/
  のarticle-A-B.tar.gz, article-C-H.tar.gz, article-I-N.tar.gz, article-O-Z.tar.gzをダウンロードし、解凍。
  あとは
+ ```
  ./pubmed.sh
+ ```
  とすれば、xmlがparseされ、pubmed.sqliteが生成される（数日かかる）。
 
 ```r
