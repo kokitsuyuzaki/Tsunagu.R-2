@@ -1,0 +1,14 @@
+DROP TABLE IF EXISTS pubmed;
+
+CREATE TABLE pubmed(
+journal_name VARCHAR(30),
+year INTEGER,
+title VARCHAR(30),
+abst VARCHAR(5000),
+pmcid CHAR(10),
+url VARCHAR(100)
+);
+
+.separator \t
+.import pubmed.txt pubmed
+.exit
