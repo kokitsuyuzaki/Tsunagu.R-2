@@ -1,4 +1,4 @@
-# 「第2回Rでつなぐ次世代オミックス情報統合解析研究会」で使用したソースコード
+### 「第2回Rでつなぐ次世代オミックス情報統合解析研究会」で使用したソースコード
 
 特設サイト
 
@@ -8,7 +8,7 @@ http://www.jsbi.org/event/hosted-events/20130308r/
 
 =======
 
-# イントロ
+### イントロ
 ```r
 # Rのパッケージを根こそぎダウンロード (Rのコンソール画面で)
 source("http://bioconductor.org/biocLite.R")
@@ -24,7 +24,7 @@ SQLiteが使われているパッケージを閲覧（Macの場合、ターミ�
     ls /Library/Frameworks/R.framework/Resources/library/*/extdata/*.sql
     ls /Library/Frameworks/R.framework/Resources/library/*/extdata/*.db
 
-# 1. SQLiteの基礎
+### 1. SQLiteの基礎
 ```
 # 以下はターミナルで
 # 起動
@@ -116,7 +116,7 @@ INSERT INTO TF1BIND VALUES ("gene2", -12);
 SELECT A.gene_name, A.control, A.treatment, B.TF1 FROM RNASEQ AS A, TF1BIND AS B WHERE A.gene_name = B.gene_name;
 ```
 
-# 2. RSQLiteの利用
+### 2. RSQLiteの利用
  pubmed.sqliteは別途作成が必要。Pubmedフォルダにhttp://www.ncbi.nlm.nih.gov/pmc/tools/ftp/
  のarticle-A-B.tar.gz, article-C-H.tar.gz, article-I-N.tar.gz, article-O-Z.tar.gzをダウンロードし、解凍。
  あとは
@@ -254,7 +254,7 @@ pubmed.download(keyword)
 
 ```
 
-# 3. MeSHパッケージの紹介
+### 3. MeSHパッケージの紹介
 以下は現状Developer版Rでのみ利用可能(2012.3.2)。安定して動くのはBioConductor2.13以降になる事が予想される。
 
  バイナリ版（クリックしていくだけでインストールできる）
